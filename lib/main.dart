@@ -36,6 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
     ApiService apiService = ApiService();
     return Scaffold(
         appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.deepPurple,
           title: const Text('News API'),
         ),
         body: FutureBuilder(
