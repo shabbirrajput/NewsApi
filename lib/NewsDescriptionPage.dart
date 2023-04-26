@@ -10,7 +10,7 @@ class NewsDescriptionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: NewsCardWidgets(article: data),
+      body: SingleChildScrollView(child: NewsCardWidgets(article: data)),
     );
   }
 }

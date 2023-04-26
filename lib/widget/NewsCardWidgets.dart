@@ -26,12 +26,15 @@ class NewsCardWidgets extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Text(
             article.title,
-            style: const TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Text(article.description),
+          child: Text(
+            article.description,
+            style: const TextStyle(fontSize: 16),
+          ),
         )
       ],
     );
