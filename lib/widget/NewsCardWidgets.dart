@@ -12,18 +12,27 @@ class NewsCardWidgets extends StatelessWidget {
         Card(
           semanticContainer: true,
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: Image.network(
-            '${article.urlToImage}',
-            fit: BoxFit.fill,
-          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
           elevation: 5,
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
+          child: Image.network(
+            '${article.urlToImage}',
+            fit: BoxFit.fill,
+          ),
         ),
-        Text(article.title,style: TextStyle(fontSize: 20),),
-        Text(article.description)
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(
+            article.title,
+            style: const TextStyle(fontSize: 20),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(article.description),
+        )
       ],
     );
   }

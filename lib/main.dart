@@ -32,37 +32,34 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  Widget build(BuildContext context){
-    Apiservice apiService = Apiservice();
+  Widget build(BuildContext context) {
+    ApiService apiService = ApiService();
     return Scaffold(
         appBar: AppBar(
-          title: Text('News API'),
+          title: const Text('News API'),
         ),
         body: FutureBuilder(
             future: apiService.getArticle(),
-            builder: (BuildContext context, AsyncSnapshot<List<Article>> snapshot ){
-              if(snapshot.hasData){
+            builder:
+                (BuildContext context, AsyncSnapshot<List<Article>> snapshot) {
+              if (snapshot.hasData) {
                 return ListView.builder(
                     itemCount: snapshot.data!.length,
-                    itemBuilder: (BuildContext context, index){
+                    itemBuilder: (BuildContext context, index) {
                       return InkWell(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(
-                                builder: (BuildContext context) => NewsDescriptionPage(data: snapshot.data![index]))
-                            );
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        NewsDescriptionPage(
+                                            data: snapshot.data![index])));
                           },
-                          child: NewsCardWidgets(
-                              article: snapshot.data![index]
-                          )
-                      );
-                    }
-                );
+                          child:
+                              NewsCardWidgets(article: snapshot.data![index]));
+                    });
               }
-              return Center(
-                  child: CircularProgressIndicator()
-              );
-            }
-        )
-    );
+              return const Center(child: CircularProgressIndicator());
+            }));
   }
 }
